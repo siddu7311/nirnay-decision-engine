@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* Configure Tailwind v4 dark mode to use the .dark class (not OS media query) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-sans: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: #f8f9fb;
+  color: #1a1d23;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ============================================================
+   DARK MODE — applied when <html class="dark">
+   Overrides the hardcoded Tailwind bg/border/text classes
+   used throughout the app components.
+   ============================================================ */
+
+/* Page background */
+.dark body {
+  background: #0f1117;
+  color: #e4e6ed;
+}
+
+/* Sidebar */
+.dark aside {
+  background: #161821 !important;
+  border-color: #272a35 !important;
+}
+.dark aside .border-b,
+.dark aside .border-t {
+  border-color: #272a35 !important;
+}
+.dark aside .text-gray-900 { color: #e4e6ed !important; }
+.dark aside .text-gray-400 { color: #6b7280 !important; }
+.dark aside .bg-indigo-50  { background: rgba(79,70,229,0.15) !important; }
+.dark aside .text-indigo-700 { color: #818cf8 !important; }
+.dark aside .hover\:bg-gray-50:hover { background: #1e2030 !important; }
+.dark aside .text-gray-600 { color: #9ca3af !important; }
+
+/* Cards */
+.dark .bg-white {
+  background: #1a1d2e !important;
+}
+.dark .border-gray-200 {
+  border-color: #2a2d3e !important;
+}
+.dark .border-gray-100 {
+  border-color: #22253a !important;
+}
+
+/* Text */
+.dark .text-gray-900 { color: #e4e6ed !important; }
+.dark .text-gray-800 { color: #d1d5db !important; }
+.dark .text-gray-700 { color: #c4c9d4 !important; }
+.dark .text-gray-600 { color: #9ca3af !important; }
+.dark .text-gray-500 { color: #6b7280 !important; }
+.dark .text-gray-400 { color: #4b5563 !important; }
+
+/* Backgrounds */
+.dark .bg-gray-50  { background: #1a1d2e !important; }
+.dark .bg-gray-100 { background: #1e2130 !important; }
+
+/* Inputs, selects, textareas */
+.dark input:not([type="range"]),
+.dark select,
+.dark textarea {
+  background: #1e2130 !important;
+  color: #e4e6ed !important;
+  border-color: #3a3d50 !important;
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #4b5563 !important;
+}
+
+/* Tables */
+.dark .border-b { border-color: #272a3a !important; }
+.dark tr:hover { background: #1e2130 !important; }
+.dark thead tr { background: transparent !important; }
+
+/* Buttons — secondary */
+.dark .bg-white.border.border-gray-300 {
+  background: #1e2130 !important;
+  border-color: #3a3d50 !important;
+  color: #c4c9d4 !important;
+}
+.dark .hover\:bg-gray-50:hover {
+  background: #22253a !important;
+}
+.dark .hover\:bg-gray-100:hover {
+  background: #22253a !important;
+}
+
+/* Progress bar track */
+.dark .bg-gray-100.rounded-full {
+  background: #272a3a !important;
+}
+
+/* Code / pre */
+.dark code {
+  background: #1e2130;
+  color: #a5b4fc;
+}
+
+/* Alert variants in dark */
+.dark .bg-blue-50   { background: rgba(59,130,246,0.12) !important; }
+.dark .bg-green-50  { background: rgba(34,197,94,0.10) !important; }
+.dark .bg-amber-50  { background: rgba(245,158,11,0.10) !important; }
+.dark .bg-red-50    { background: rgba(239,68,68,0.10) !important; }
+.dark .bg-indigo-50 { background: rgba(99,102,241,0.12) !important; }
+
+.dark .border-blue-200   { border-color: rgba(59,130,246,0.3) !important; }
+.dark .border-green-200  { border-color: rgba(34,197,94,0.3) !important; }
+.dark .border-amber-200  { border-color: rgba(245,158,11,0.3) !important; }
+.dark .border-red-200    { border-color: rgba(239,68,68,0.3) !important; }
+.dark .border-indigo-100 { border-color: rgba(99,102,241,0.25) !important; }
+
+/* Scrollbar in dark */
+.dark ::-webkit-scrollbar-track  { background: #1a1d2e; }
+.dark ::-webkit-scrollbar-thumb  { background: #3a3d50; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #4b5063; }
+
+/* Scrollbar styling (light) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8ccd4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a5b0;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
